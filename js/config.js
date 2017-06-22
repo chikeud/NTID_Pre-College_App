@@ -395,6 +395,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                 }
             }
         })
+        .state('fall-semester', {
+            url: "/fall",
+            templateUrl: "views/common/fall.html",
+            data: { pageTitle: 'Fall Semester' },
+        })
         .state('forms', {
             abstract: true,
             url: "/forms",

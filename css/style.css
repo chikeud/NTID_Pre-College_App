@@ -39,19 +39,19 @@ h5 {
   font-weight: 600;
 }
 .nav > li > a {
-  color: #a7b1c2;
+  color: #ffffff;
   font-weight: 600;
   padding: 14px 20px 14px 25px;
 }
 .nav.navbar-right > li > a {
-  color: #999c9e;
+  color: #ffffff;
 }
 .nav > li.active > a {
   color: #ffffff;
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus {
-  background-color: #293846;
+  background-color: #F07C0A;
   color: white;
 }
 .nav .open > a,
@@ -61,7 +61,7 @@ h5 {
 }
 .nav.navbar-top-links > li > a:hover,
 .nav.navbar-top-links > li > a:focus {
-  background-color: transparent;
+  background-color: #F07C0A;
 }
 .nav > li > a i {
   margin-right: 6px;
@@ -70,8 +70,8 @@ h5 {
   border: 0;
 }
 .navbar-default {
-  background-color: transparent;
-  border-color: #2f4050;
+  background-color: #F07C0A;
+  border-color: #0AA7F0  ;
 }
 .navbar-top-links li {
   display: inline-block;
@@ -114,7 +114,7 @@ h5 {
 .dropdown-menu > .active > a:hover {
   color: #fff;
   text-decoration: none;
-  background-color: #1ab394;
+  background-color: #0AA7F0 ;
   outline: 0;
 }
 .dropdown-menu > li > a.font-bold {
@@ -169,7 +169,7 @@ h5 {
 }
 .nav-header {
   padding: 33px 25px;
-  background-color: #2f4050;
+  background-color: #F07C0A;
   background-image: url("patterns/header-profile.png");
 }
 .pace-done .nav-header {
@@ -177,7 +177,7 @@ h5 {
 }
 .nav > li.active {
   border-left: 4px solid #19aa8d;
-  background: #293846;
+  background: #F07C0A;
 }
 .nav.nav-second-level > li.active {
   border: none;
@@ -347,7 +347,7 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   border-image: none;
   border-style: solid;
   border-width: 1px;
-  color: #555555;
+  color: #F07C0A;
   cursor: default;
 }
 .nav.nav-tabs li {
@@ -702,8 +702,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-success:active:hover,
 .btn-success.active:hover,
 .btn-success.active:focus {
-  background-color: #1a7bb9;
-  border-color: #1a7bb9;
+  background-color: #F07C0A;
+  border-color: #F07C0A;
   color: #FFFFFF;
 }
 .btn-success:active,
@@ -1172,7 +1172,7 @@ button.dim:active:before {
 .onoffswitch-inner:before {
   content: "ON";
   padding-left: 10px;
-  background-color: #1ab394;
+  background-color: #F07C0A;
   color: #FFFFFF;
 }
 .onoffswitch-inner:after {
@@ -1186,7 +1186,7 @@ button.dim:active:before {
   width: 20px;
   margin: 0;
   background: #FFFFFF;
-  border: 2px solid #1ab394;
+  border: 2px solid #F07C0A;
   border-radius: 2px;
   position: absolute;
   top: 0;
