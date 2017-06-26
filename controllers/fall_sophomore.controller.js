@@ -1,38 +1,43 @@
-function SophFallController ($scope) {
-    $scope.appTitle = "College Checklist App";
-    $scope.appHeadline = "This one will save to local storage!";
-    $scope.saved = localStorage.getItem('todos');
-    $scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [
+'use strict';
 
 
-        {text: '<b>Meet</b> with your school counselor about your college plans. Review your course schedule.', done: false},
-        {text: '<b>Find out</b> about the courses', done: false} ];
-    localStorage.setItem('todos', JSON.stringify($scope.todos));
+angular.module('FallSophModule').controller('SophFallController',function () {
 
-    $scope.addTodo = function() {
-        $scope.todos.push({
-            text: $scope.todoText,
+    var vm = this;
+    vm.appTitle = "College Checklist App";
+    vm.appHeadline = "This one will save to local storage!";
+    vm.saved = localStorage.getItem('todos');
+    vm.todos = (localStorage.getItem('todos')!==null) ? JSON.parse(vm.saved) : [
+
+
+        {text: 'with your school counselor about your college plans. Review your course schedule.', done: false},
+        {text: ' about the courses', done: false} ];
+    localStorage.setItem('todos', JSON.stringify(vm.todos));
+
+    vm.addTodo = function() {
+        vm.todos.push({
+            text: vm.todoText,
             done: false
         });
-        $scope.todoText = ''; //clear the input after adding
-        localStorage.setItem('todos', JSON.stringify($scope.todos));
+        vm.todoText = ''; //clear the input after adding
+        localStorage.setItem('todos', JSON.stringify(vm.todos));
     };
 
-    $scope.remaining = function() {
+    vm.remaining = function() {
         var count = 0;
-        angular.forEach($scope.todos, function(todo){
+        angular.forEach(vm.todos, function(todo){
             count+= todo.done ? 0 : 1;
         });
         return count;
     };
 
-    $scope.archive = function() {
-        var oldTodos = $scope.todos;
-        $scope.todos = [];
+    vm.archive = function() {
+        var oldTodos = vm.todos;
+        vm.todos = [];
         angular.forEach(oldTodos, function(todo){
             if (!todo.done)
-                $scope.todos.push(todo);
+                vm.todos.push(todo);
         });
-        localStorage.setItem('todos', JSON.stringify($scope.todos));
+        localStorage.setItem('todos', JSON.stringify(vm.todos));
     };
-}
+})
