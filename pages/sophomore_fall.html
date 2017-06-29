@@ -13,8 +13,9 @@
 <br>
 
 <div ng-repeat="x in todoList">
-    <input type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span>
-
+    <p>{{x.done}}</p>
+    <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
+   <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
 </div>
 
 <p><button ng-click="remove()">Remove marked</button></p>
@@ -26,7 +27,7 @@
 <script>
     var app = angular.module('myApp', []);
     app.controller('todoCtrl', function($scope) {
-        $scope.saved = localStorage.getItem('todoList');
+        $scope.saved = localStorage.getItem("todoList");
         $scope.todoList = [{todoText:'Meet with your school counselor about your college plans. ' +
         'Review your course schedule to make sure you are enrolled in challenging courses that will help ' +
         'you prepare for college. Many colleges prefer four years of English, history, math, science and a foreign language.', done:false},
@@ -51,9 +52,18 @@
             });
         };
         $scope.save = function () {
-            localStorage.setItem('todoList');
+            JSON.stringify(todoList);
+            localStorage.setItem("todoList", str);
 
         };
+        $scope.getList = function(){
+            var str = localStorage.getItem("todoList");
+            todos = JSON.parse(str);
+            if (!todos){
+                todoList = [];
+            }
+
+        }
         $scope.checkboxClick = function (x) {
               x.done = (!x.done);
               console.log("I see you");
