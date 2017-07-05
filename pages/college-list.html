@@ -1,0 +1,42 @@
+<h1>College List</h1>
+
+
+<input type="text" length=20 id="input-info"/>
+<button id = "save-button" onclick="saveText()">Save</button>
+
+<ol id="item-list"></ol>
+
+<script type="text/javascript">
+    loadItems();
+
+    function saveText(){
+        var value = document.getElementById("input-info").value;
+
+        window.localStorage.setItem("items", window.localStorage.getItem("items") + "," + value);
+
+        document.getElementById("input-info").value = "";
+
+        loadItems();
+    }
+
+    function loadItems(){
+        var items = window.localStorage.getItem("items");
+
+        if(!items) return;
+
+        items = items.split(",");
+
+        var list = document.getElementById("item-list");
+
+        list.innerHTML = "";
+
+        items.forEach(function(item){
+            if(!item.trim()) return;
+
+            var li = document.createElement("li");
+
+            li.innerHTML = item;
+            list.appendChild(li);
+        });
+    }
+</script>

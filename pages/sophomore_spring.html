@@ -13,7 +13,7 @@
 <br>
 
 <div ng-repeat="x in todoList">
-    <input type="checkbox" ng-click="checkboxClick()" > <span ng-bind="x.todoText"></span>
+    <input type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span>
 
 </div>
 
@@ -37,8 +37,8 @@
             {todoText:'Meet with your school counselor to discuss plans for the summer and your junior year', done:false},
             {todoText:'Set up files to organize information about colleges. Start a calendar to track important dates and deadlines', done:false},
             {todoText:"Contact your area's Vocational Rehabilitation office and set up an interview with a VR counselor to see if you qualify" +
-            "for any financial support for summer camp programs and your college education. Learn more about VR at " +
-            "www.rit.edu/NTID/VR", done:false}];
+            "for any financial support for summer camp programs and your college education. Learn more about VR at "
+            , done:false}];
 
         $scope.todoAdd = function() {
             $scope.todoList.push({todoText:$scope.todoInput, done:false});
@@ -53,7 +53,7 @@
             });
         };
         $scope.save = function () {
-            localStorage.setItem(todoList);
+            localStorage.setItem('todoList',JSON.stringify(todoList));
 
         };
         $scope.checkboxClick = function (x) {
