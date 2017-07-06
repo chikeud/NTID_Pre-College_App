@@ -25,8 +25,8 @@
 
 <script>
     var app = angular.module('myApp', []);
-    app.controller('todoCtrl', function($scope) {
-        $scope.saved = localStorage.getItem('todoList');
+    app.controller('todoCtrl', ["$scope", "$window", function($scope, $window){
+        $scope.saved = JSON.parse($window.localStorage.getItem('todoList'));
         $scope.todoList = [{todoText:'Learn about college costs and how financial aid works. Begin to discuss college costs' +
         'with your parents/guardians', done:false},
             {todoText:'Sign up for college preparatory courses. Consider taking Advanced Placement courses if you qualify. AP courses' +
@@ -53,11 +53,11 @@
             });
         };
         $scope.save = function () {
-            localStorage.setItem('todoList',JSON.stringify(todoList));
+            $window.localStorage.setItem('todoList',JSON.stringify($scope.todoList));
 
         };
         $scope.checkboxClick = function (x) {
             x.done = (!x.done);
         };
-    });
+    }]);
 </script>

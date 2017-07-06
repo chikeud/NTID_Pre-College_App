@@ -56,14 +56,6 @@
             localStorage.setItem("todoList", str);
 
         };
-        $scope.getList = function(){
-            var str = localStorage.getItem("todoList");
-            todos = JSON.parse(str);
-            if (!todos){
-                todoList = [];
-            }
-
-        }
         $scope.checkboxClick = function (x) {
               x.done = (!x.done);
               console.log("I see you");
