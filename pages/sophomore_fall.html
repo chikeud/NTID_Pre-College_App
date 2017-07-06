@@ -1,6 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<body ng-app="myApp" ng-controller="todoCtrl">
+<body ng-app="myApp" ng-controller="sFallCtrl">
 
 <h2>Fall of your sophomore year</h2>
 <h4>August through December</h4>
@@ -12,22 +12,21 @@
 
 <br>
 
-<div ng-repeat="x in todoList">
-    <p>{{x.done}}</p>
+<div ng-repeat="x in saved">
     <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
-   <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
+    <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
 </div>
+
 
 <p><button ng-click="remove()">Remove marked</button></p>
 
 <p><button ng-click="save()">Save</button></p>
 </body>
 
-
 <script>
     var app = angular.module('myApp', []);
-    app.controller('todoCtrl', function($scope) {
-        $scope.saved = localStorage.getItem("todoList");
+    app.controller('sFallCtrl', function($scope) {
+        $scope.saved = JSON.parse(localStorage.getItem('todoList'));
         $scope.todoList = [{todoText:'Meet with your school counselor about your college plans. ' +
         'Review your course schedule to make sure you are enrolled in challenging courses that will help ' +
         'you prepare for college. Many colleges prefer four years of English, history, math, science and a foreign language.', done:false},
@@ -52,8 +51,8 @@
             });
         };
         $scope.save = function () {
-            JSON.stringify(todoList);
-            localStorage.setItem("todoList", str);
+            localStorage.setItem('todoList',JSON.stringify($scope.saved));
+            console.log("I'm saving");
 
         };
         $scope.checkboxClick = function (x) {
