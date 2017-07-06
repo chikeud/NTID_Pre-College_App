@@ -1,6 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<body ng-app="sophomoreSpring" ng-controller="sSpringCtrl">
+<body ng-app="sophomoreSummer" ng-controller="sSummerCtrl">
 
 <h2>Spring of your sophomore year</h2>
 <h4>January-June</h4>
@@ -13,23 +13,22 @@
 <br>
 
 <div ng-if="saved != null" ng-repeat="x in saved">
-    <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
-    <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
+    <span ng-if="x.done"><span ng-bind="x.todoText"></span><input  type="checkbox" ng-click="checkboxClick(x)" checked ></span>
+    <span ng-if="!x.done"><span ng-bind="x.todoText"></span><input  type="checkbox" ng-click="checkboxClick(x)" ></span>
 </div>
 
-<div ng-if="saved == null" ng-repeat="x in todoList">
-    <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
-    <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
+<div ng-if="saved != null" ng-repeat="x in todoList">
+    <span ng-if="x.done"><span ng-bind="x.todoText"></span><input  type="checkbox" ng-click="checkboxClick(x)" checked ></span>
+    <span ng-if="!x.done"><span ng-bind="x.todoText"></span><input  type="checkbox" ng-click="checkboxClick(x)" ></span>
 </div>
 <p><button ng-click="remove()">Remove marked</button></p>
 
 <p><button ng-click="save()">Save</button></p>
 </body>
 
-
 <script>
-    var app = angular.module('sophomoreSpring', []);
-    app.controller('sSpringCtrl', function($scope){
+    var app = angular.module('sophomoreSummer', []);
+    app.controller('sSummerCtrl', function($scope){
         $scope.saved = JSON.parse(localStorage.getItem('todoList'));
         $scope.todoList = [{todoText:'Learn about college costs and how financial aid works. Begin to discuss college costs' +
         'with your parents/guardians', done:false},
@@ -42,7 +41,7 @@
             {todoText:'Set up files to organize information about colleges. Start a calendar to track important dates and deadlines', done:false},
             {todoText:"Contact your area's Vocational Rehabilitation office and set up an interview with a VR counselor to see if you qualify" +
             "for any financial support for summer camp programs and your college education. Learn more about VR at "
-            , done:false}];
+                , done:false}];
 
         $scope.todoAdd = function() {
             $scope.todoList.push({todoText:$scope.todoInput, done:false});

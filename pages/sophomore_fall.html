@@ -1,6 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<body ng-app="myApp" ng-controller="sFallCtrl">
+<body ng-app="sophomoreFall" ng-controller="sFallCtrl">
 
 <h2>Fall of your sophomore year</h2>
 <h4>August through December</h4>
@@ -12,9 +12,14 @@
 
 <br>
 
-<div ng-repeat="x in saved">
-    <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
-    <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
+<div ng-if="saved != null" ng-repeat="x in saved">
+    <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked><span ng-bind="x.todoText"></span></span>
+    <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)"><span ng-bind="x.todoText"></span></span>
+</div>
+
+<div ng-if="saved == null" ng-repeat="x in todoList">
+    <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked><span ng-bind="x.todoText"></span></span>
+    <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)"><span ng-bind="x.todoText"></span></span>
 </div>
 
 
@@ -24,7 +29,7 @@
 </body>
 
 <script>
-    var app = angular.module('myApp', []);
+    var app = angular.module('sophomoreFall', []);
     app.controller('sFallCtrl', function($scope) {
         $scope.saved = JSON.parse(localStorage.getItem('todoList'));
         $scope.todoList = [{todoText:'Meet with your school counselor about your college plans. ' +
@@ -37,7 +42,7 @@
             'leadership roles.', done:false},
             {todoText:'Evaluate your personality, interests and skills. Then explore career opportunities that might match your interests', done:false},
             {todoText:'Talk to friends or relatives who are home from college for the holidays to learn about their college experiences', done:false},
-            {todoText:'Attend a college fair in your area and chat with college representatives.', done:true},
+            {todoText:'Attend a college fair in your area and chat with college representatives.', done:false},
             {todoText:'Set up a separate email account specifically for your college search. Remember to check it for periodic' +
             'updates.', done:false}];
 
@@ -51,13 +56,10 @@
             });
         };
         $scope.save = function () {
-            localStorage.setItem('todoList',JSON.stringify($scope.saved));
-            console.log("I'm saving");
-
+            localStorage.setItem('todoList',JSON.stringify($scope.todoList));
         };
         $scope.checkboxClick = function (x) {
               x.done = (!x.done);
-              console.log("I see you");
         };
     });
 </script>
