@@ -23,13 +23,13 @@
     <br>
 
     <div ng-if="saved != null" ng-repeat="x in saved">
-        <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked><span ng-bind="x.todoText"></span></span>
-        <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)"><span ng-bind="x.todoText"></span></span>
+        <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
+        <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
     </div>
 
     <div ng-if="saved == null" ng-repeat="x in todoList">
-        <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked><span ng-bind="x.todoText"></span></span>
-        <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)"><span ng-bind="x.todoText"></span></span>
+        <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
+        <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
     </div>
 
 
@@ -42,7 +42,7 @@
 <script>
     var app = angular.module('sophomoreFall', []);
     app.controller('sFallCtrl', function($scope) {
-        $scope.saved = JSON.parse(localStorage.getItem('todoList'));
+        $scope.saved = JSON.parse(localStorage.getItem('sophFalltodoList'));
         $scope.todoList = [{todoText:'Meet with your school counselor about your college plans. ' +
         'Review your course schedule to make sure you are enrolled in challenging courses that will help ' +
         'you prepare for college. Many colleges prefer four years of English, history, math, science and a foreign language.', done:false},
@@ -67,7 +67,13 @@
             });
         };
         $scope.save = function () {
-            localStorage.setItem('todoList',JSON.stringify($scope.todoList));
+            if($scope.saved===null){
+                localStorage.setItem('sophFalltodoList',JSON.stringify($scope.todoList));
+            }
+            else{
+                localStorage.setItem('sophFalltodoList',JSON.stringify($scope.saved));
+            }
+            console.log($scope.saved);
         };
         $scope.checkboxClick = function (x) {
               x.done = (!x.done);
