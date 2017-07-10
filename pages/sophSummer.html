@@ -1,6 +1,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 <body ng-app="sophomoreSummer" ng-controller="sSummerCtrl">
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
+    <a href="sophomore_fall.html">Sophomore Year: Fall</a>
+    <a href="sophomore_spring.html">Sophomore Year: Spring</a>
+    <a href="sophSummer.html">Summer</a>
+    <a href="college-list.html">College List</a>
+</div>
+<!-- Use any element to open the sidenav -->
+<span ng-click="openNav()"><img src="burger.png"></span>
 
 <h2>Summer after sophomore year</h2>
 <h4>January-June</h4>
@@ -63,6 +72,14 @@
         $scope.checkboxClick = function (x) {
             x.done = (!x.done);
         };
+        $scope.openNav = function () {
+            document.getElementById("mySidenav").style.width = "250px";
+        };
+
+        /* Set the width of the side navigation to 0 */
+        $scope.closeNav = function() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     });
 </script>
 
