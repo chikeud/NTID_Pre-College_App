@@ -10,9 +10,10 @@
 </div>
 <!-- Use any element to open the sidenav -->
 <span ng-click="openNav()"><img src="burger.png"></span>
-
-<h2>Spring of your sophomore year</h2>
-<h4>January-June</h4>
+<div class="header-text">
+    <h2>Spring of your sophomore year</h2>
+    <h4>January-June</h4>
+</div>
 
 <!--<form ng-submit="todoAdd()">
     <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
@@ -21,12 +22,12 @@
 
 <br>
 
-<div ng-if="saved != null" ng-repeat="x in saved">
+<div class="border-line" ng-if="saved != null" ng-repeat="x in saved">
     <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
     <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
 </div>
 
-<div ng-if="saved == null" ng-repeat="x in todoList">
+<div class="border-line" ng-if="saved == null" ng-repeat="x in todoList">
     <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
     <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
 </div>
@@ -88,6 +89,20 @@
 
 
 <style>
+    .header-text{
+        text-align: center;
+        color: #F36E21;
+
+    }
+    .border-line {
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 16px;
+
+    }
+
+    .border-line:hover {
+        background-color: white;
+    }
 
     .fullpage{
         background-color: #ecf0f1;
