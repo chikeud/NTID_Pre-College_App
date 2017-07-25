@@ -7,13 +7,14 @@
     <a href="sophomore_spring.html">Sophomore Year: Spring</a>
     <a href="sophSummer.html">Summer</a>
     <a href="college-list.html">College List</a>
+    <a href="tips.html">Tips</a>
 </div>
 <!-- Use any element to open the sidenav -->
 <span ng-click="openNav()"><img src="burger.png"></span>
-
-<h2>Summer after sophomore year</h2>
-<h4>January-June</h4>
-
+<div class="header-text">
+    <h2>Summer after sophomore year</h2>
+    <h4>May-August</h4>
+</div>
 <!--<form ng-submit="todoAdd()">
     <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
     <input type="submit" value="Add New">
@@ -26,7 +27,7 @@
     <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
 </div>
 
-<div ng-if="saved == null" ng-repeat="x in todoList">
+<div class="border-line"ng-if="saved == null" ng-repeat="x in todoList">
     <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
     <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
 </div>
@@ -87,6 +88,22 @@
     .fullpage{
         background-color: #ecf0f1;
         background-image: url("/RIT-Simone.jpg");
+    }
+    .header-text{
+        text-align: center;
+        color: #F36E21;
+
+    }
+    .border-line {
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 16px;
+        padding: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    .border-line:hover {
+        background-color: white;
     }
     /* The side navigation menu */
     .sidenav {
