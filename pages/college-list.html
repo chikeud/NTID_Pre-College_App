@@ -5,7 +5,8 @@
     <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
     <a href="sophomore_fall.html">Sophomore Year: Fall</a>
     <a href="sophomore_spring.html">Sophomore Year: Spring</a>
-    <a href="sophSummer.html">Summer</a>
+    <a href="sophSummer.html">Summer after Sophomore Year</a>
+    <a href="junior_fall.html">Junior Year: Fall</a>
     <a href="college-list.html">College List</a>
     <a href="tips.html">Tips</a>
 </div>
@@ -16,32 +17,32 @@
 <div id="main">
 
 
-    <header class="app-header">
-        <h1 class="app-title">{{ appTitle }}</h1>
-        <h1 class="app-headline">{{ appHeadline }}</h1>
-    </header>
+    <div class="small-header">
+        <h2>College List</h2>
+        <h6>Draft and edit College List</h6>
+    </div>
 
-    <section class="app-body">
-        <section>
-            <form data-ng-submit="archive()">
-                <input type="submit" value="Remove checked" />
-            </form>
-        </section>
 
-        <ul class="unstyled">
-            <li data-ng-repeat="todo in todos track by $index">
+        <div class="border-line">
+            <div class="border-line" ng-repeat="todo in todos track by $index">
                 <input type="checkbox" data-ng-model="todo.done">
                 <span class="done-{{ todo.done }}">{{ todo.text }}</span>
-            </li>
-        </ul>
+            </div>
+        </div>
+        <div class="column">
+            <form ng-submit="addTodo()" class="todo-form">
+                <input type="text" data-ng-model="todoText" placeholder="Enter new College" />
+                <br />
+                <input type="submit" value="Add College" />
+            </form>
 
-        <form data-ng-submit="addTodo()" class="todo-form">
-            <input type="text" data-ng-model="todoText" placeholder="Enter new College" />
-            <br />
-            <input type="submit" value="Add College" />
-        </form>
+             <form data-ng-submit="archive()">
+                <input type="submit" value="Remove checked" />
+             </form>
+        </div>
 
-    </section>
+
+
 </div>
 </body>
 <script>
@@ -88,45 +89,25 @@
     .fullpage{
         background-color: #ecf0f1;
     }
-
-    a{
-        text-decoration: none;
-        font-weight: bold;
-        color: rgb(145, 145, 145);
-    }
-    .container {
-        width: 100%;
-        max-width: 960px;
-        margin: 0px auto;
-    }
-
-    .app-header {
+    .small-header {
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 10px;
+        color: white;
+        background-color: #F36E21;
+        font-size: large;
+        padding-bottom: 10px;
+        padding-top: 10px;
         text-align: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        height: 40px;
-        background: #FF8C00;
-    }
-    .app-title {
-        font-size: 28px;
-        line-height: 40px;
-        padding: 0px;
-        margin: 0px;
-        color: #fff;
-        text-shadow: 1px 1px 3px #000000;
-        filter: dropshadow(color=#000000, offx=1, offy=1);
-    }
-    .app-headline {
-        color: #999;
-        font-size: 15px;
-    }
+        margin-bottom: 15px;
+        vertical-align: middle;
 
-    .app-body {
-        margin-top: 40px;
     }
+    .border-line {
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 16px;
+        padding: 10px;
+        margin-bottom: 10px;
 
-    .done-true {
-        text-decoration: line-through;
-        color: grey;
     }
 
     .archive-control {
@@ -143,14 +124,11 @@
         padding-left: 0;
         padding: 10px;
     }
-    ul li {
-        line-height: 32px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
 
     .todo-form {
         padding: 10px;
         text-align: center;
+
     }
 
     input[type="text"] {
@@ -164,10 +142,18 @@
     }
 
     input[type="submit"] {
-        height: 30px;
+        background-color: dodgerblue;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 10px;
+        color: white;
+        padding: 16px 32px;
         text-align: center;
-        margin: 10px;
-        width: 120px;
+        font-size: 30px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        margin-top: 30px;
     }
 
     /* The side navigation menu */
@@ -198,6 +184,7 @@
     .sidenav a:hover, .offcanvas a:focus{
         color: #f1f1f1;
     }
+
 
     /* Position and style the close button (top right corner) */
     .sidenav .closebtn {

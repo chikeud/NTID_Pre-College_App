@@ -5,16 +5,18 @@
     <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
     <a href="sophomore_fall.html">Sophomore Year: Fall</a>
     <a href="sophomore_spring.html">Sophomore Year: Spring</a>
-    <a href="sophSummer.html">Summer</a>
+    <a href="sophSummer.html">Summer after Sophomore Year</a>
+    <a href="junior_fall.html">Junior Year: Fall</a>
     <a href="college-list.html">College List</a>
     <a href="tips.html">Tips</a>
 </div>
 <!-- Use any element to open the sidenav -->
 <span ng-click="openNav()"><img src="burger.png"></span>
-<div class="header-text">
-    <h2>Summer after sophomore year</h2>
-    <h4>May-August</h4>
-</div>
+<div id="main">
+    <div class="small-header">
+        <h2>Summer after sophomore year</h2>
+        <h4>(Between your sophomore and junior year)</h4>
+    </div>
 <!--<form ng-submit="todoAdd()">
     <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
     <input type="submit" value="Add New">
@@ -22,7 +24,7 @@
 
 <br>
 
-<div ng-if="saved != null" ng-repeat="x in saved">
+<div class="border-line" ng-if="saved != null" ng-repeat="x in saved">
     <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
     <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
 </div>
@@ -35,25 +37,19 @@
 <p>
     <button class="button-save" ng-click="save()">Save</button>
 </p>
-
+</div>
 </body>
 
 <script>
     var app = angular.module('sophomoreSummer', []);
     app.controller('sSummerCtrl', function($scope){
         $scope.saved = JSON.parse(localStorage.getItem('sophSummtodoList'));
-        $scope.todoList = [{todoText:'Learn about college costs and how financial aid works. Begin to discuss college costs' +
-        'with your parents/guardians', done:false},
-            {todoText:'Sign up for college preparatory courses. Consider taking Advanced Placement courses if you qualify. AP courses' +
-            'and exams can help you get a head start on college, giving you the opportunity to earn college credit while you are ' +
-            'still in high school.', done:false},
-            {todoText:'Visit colleges while they are in session', done:false},
-            {todoText:'Look for a summer opportunity- a job, volunteer position or internship.', done:false},
-            {todoText:'Meet with your school counselor to discuss plans for the summer and your junior year', done:false},
-            {todoText:'Set up files to organize information about colleges. Start a calendar to track important dates and deadlines', done:false},
-            {todoText:"Contact your area's Vocational Rehabilitation office and set up an interview with a VR counselor to see if you qualify" +
-            "for any financial support for summer camp programs and your college education. Learn more about VR at "
-                , done:false}];
+        $scope.todoList = [{todoText:'Continue gathering information and exploring career options that you ' +
+        'find interesting. Begin to investigate colleges that are a good match for those career interests and bookmark their websites. Keep track of these colleges' +
+        ' in your College List tab.', done:false},
+            {todoText:'Consider shadowing someone for a day in a career that interests you. Job shadowing involves spending time with a person at work so that you can' +
+            ' learn what a typical day is like in that career.', done:false},
+            ];
 
 
 
@@ -88,9 +84,34 @@
 </script>
 
 <style>
+    .small-header {
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 10px;
+        color: white;
+        background-color: #F36E21;
+        font-size: large;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+        vertical-align: middle;
+
+    }
     .fullpage{
         background-color: #ecf0f1;
         background-image: url("/RIT-Simone.jpg");
+    }
+
+    input[type=checkbox]
+    {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(2); /* IE */
+        -moz-transform: scale(2); /* FF */
+        -webkit-transform: scale(2.5); /* Safari and Chrome */
+        -o-transform: scale(2); /* Opera */
+        padding: 10px;
+        margin-right: 10px;
+
     }
     .header-text{
         text-align: center;

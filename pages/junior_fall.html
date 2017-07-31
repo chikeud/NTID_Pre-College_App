@@ -1,6 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<body class="fullpage" ng-app="sophomoreSpring" ng-controller="sSpringCtrl">
+<body class="fullpage" ng-app="juniorFall" ng-controller="jFallCtrl">
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
     <a href="sophomore_fall.html">Sophomore Year: Fall</a>
@@ -12,54 +12,62 @@
 </div>
 <!-- Use any element to open the sidenav -->
 <span ng-click="openNav()"><img src="burger.png"></span>
+
 <div id="main">
     <div class="small-header">
-        <h2>Spring of your sophomore year</h2>
-        <h6>January-June</h6>
+        <h2>Fall of your Junior year</h2>
+        <h6>August through December</h6>
     </div>
 
-<!--<form ng-submit="todoAdd()">
-    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
-    <input type="submit" value="Add New">
-</form>-->
+    <!--<form ng-submit="todoAdd()">
+        <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+        <input type="submit" value="Add New">
+    </form>-->
 
-<br>
+    <br>
 
-<div class="border-line" ng-if="saved != null" ng-repeat="x in saved">
-    <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
-    <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
+    <div class="border-line" ng-if="saved != null" ng-repeat="x in saved">
+        <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked  > <span ng-bind="x.todoText"></span></span>
+        <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
+    </div>
+
+    <div class="border-line" ng-if="saved == null" ng-repeat="x in todoList">
+        <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
+        <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
+    </div>
+
+
+    <p>
+        <button class="button-save" ng-click="save()">Save</button>
+    </p>
+
+
+
+
+
 </div>
-
-<div class="border-line" ng-if="saved == null" ng-repeat="x in todoList">
-    <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
-    <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
-</div>
-
-
-<p>
-    <button class="button-save" ng-click="save()">Save</button>
-</p>
-</div>
-
 </body>
 
-
 <script>
-    var app = angular.module('sophomoreSpring', []);
-    app.controller('sSpringCtrl', function($scope){
-        $scope.saved = JSON.parse(localStorage.getItem('sophSpritodoList'));
-        $scope.todoList = [{todoText:'Learn about college costs and how financial aid works. Begin to discuss college costs' +
-        'with your parents/guardians', done:false},
-            {todoText:'Sign up for college preparatory courses. Consider taking Advanced Placement courses if you qualify. AP courses' +
-            'and exams can help you get a head start on college, giving you the opportunity to earn college credit while you are ' +
-            'still in high school.', done:false},
-            {todoText:'Visit colleges while they are in session', done:false},
-            {todoText:'Look for a summer opportunity- a job, volunteer position or internship.', done:false},
-            {todoText:'Meet with your school counselor to discuss plans for the summer and your junior year', done:false},
-            {todoText:'Set up files to organize information about colleges. Start a calendar to track important dates and deadlines', done:false},
-            {todoText:"Contact your area's Vocational Rehabilitation office and set up an interview with a VR counselor to see if you qualify" +
-            "for any financial support for summer camp programs and your college education. Learn more about VR at "
-            , done:false}];
+    var app = angular.module('juniorFall', []);
+    app.controller('jFallCtrl', function($scope) {
+        $scope.saved = JSON.parse(localStorage.getItem('juniorFalltodoList'));
+        $scope.todoList = [{todoText:'Meet with your school counselor to discuss colleges and the kinds of courses and grades you need to apply.' +
+        ' This will help you develop a list. Choose as many colleges as interest you. Add and remove as your research' +
+        'suggests in your College List tab.', done:false},
+            {todoText:'Show what you know. Take the PSAT in October to give you valuable test-taking experience. You will want to ' +
+            ' take this test now for practice and to establish your eligibility for national-level scholarships. It also will help you have an idea of what the questions and the testing atmosphere are like.' +
+            '', done:false},
+            {todoText:'Find out when the representatives of colleges you are interested in are coming to your ' +
+            ' school or your town. Your school counselor may know these dates, or you can find out on the colleges websites. Find out if you need to sign up' +
+            ' or make an appointment for an interview.', done:false},
+            {todoText:'Check with your school counselor or look on your preferred', done:false},
+            {todoText:'Evaluate your personality, interests and skills. Then explore career opportunities that might match your interests', done:false},
+            {todoText:'Talk to friends or relatives who are home from college for the holidays to learn about their college experiences', done:false},
+            {todoText:'Attend a college fair in your area and chat with college representatives.', done:false},
+            {todoText:'Set up a separate email account specifically for your college search. Remember to check it for periodic' +
+            'updates.', done:false}];
+
 
 
         $scope.remove = function() {
@@ -71,18 +79,17 @@
         };
         $scope.save = function () {
             if($scope.saved===null){
-                localStorage.setItem('sophSpritodoList',JSON.stringify($scope.todoList));
+                localStorage.setItem('juniorFalltodoList',JSON.stringify($scope.todoList));
             }
             else{
-                localStorage.setItem('sophSpritodoList',JSON.stringify($scope.saved));
+                localStorage.setItem('juniorFalltodoList',JSON.stringify($scope.saved));
             }
             console.log($scope.saved);
         };
-
         $scope.checkboxClick = function (x) {
             x.done = (!x.done);
         };
-        $scope.openNav = function () {
+        $scope.openNav= function () {
             document.getElementById("mySidenav").style.width = "250px";
         };
 
@@ -98,24 +105,6 @@
     .header-text{
         text-align: center;
         color: #F36E21;
-
-    }
-    input[type=checkbox]
-    {
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(2); /* IE */
-        -moz-transform: scale(2); /* FF */
-        -webkit-transform: scale(2.5); /* Safari and Chrome */
-        -o-transform: scale(2); /* Opera */
-        padding: 10px;
-        margin-right: 10px;
-
-    }
-    .border-line {
-        border: 1px solid rgba(0, 0, 0, .1);
-        border-radius: 16px;
-        padding: 10px;
-        margin-bottom: 10px;
 
     }
     .button-save {
@@ -145,11 +134,28 @@
         vertical-align: middle;
 
     }
+    .border-line {
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 16px;
+        padding: 10px;
+        margin-bottom: 10px;
+
+    }
+    input[type=checkbox]
+    {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(2); /* IE */
+        -moz-transform: scale(2); /* FF */
+        -webkit-transform: scale(2.5); /* Safari and Chrome */
+        -o-transform: scale(2); /* Opera */
+        padding: 10px;
+        margin-right: 10px;
+
+    }
 
     .border-line:hover {
         background-color: white;
     }
-
     .fullpage{
         background-color: #ecf0f1;
     }
@@ -174,7 +180,7 @@
         font-size: 25px;
         color: #818181;
         display: block;
-        transition: 0.3s
+        transition: 0.2s
     }
 
     /* When you mouse over the navigation links, change their color */
