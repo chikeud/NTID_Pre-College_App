@@ -13,9 +13,9 @@
 <span ng-click="openNav()"><img src="burger.png"></span>
 
 <div id="main">
-    <div class="header-text">
+    <div class="small-header">
         <h2>Fall of your sophomore year</h2>
-        <h4>August through December</h4>
+        <h6>August through December</h6>
     </div>
 
     <!--<form ng-submit="todoAdd()">
@@ -26,7 +26,7 @@
     <br>
 
     <div class="border-line" ng-if="saved != null" ng-repeat="x in saved">
-        <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked > <span ng-bind="x.todoText"></span></span>
+        <span ng-if="x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" checked  > <span ng-bind="x.todoText"></span></span>
         <span ng-if="!x.done"> <input  type="checkbox" ng-click="checkboxClick(x)" > <span ng-bind="x.todoText"></span></span>
     </div>
 
@@ -36,9 +36,14 @@
     </div>
 
 
-    <p><button ng-click="remove()">Remove marked</button></p>
+    <p>
+         <button class="button-save" ng-click="save()">Save</button>
+    </p>
 
-    <p><button ng-click="save()">Save</button></p>
+
+
+
+
 </div>
 </body>
 
@@ -99,11 +104,49 @@
         color: #F36E21;
 
     }
+    .button-save {
+        background-color: dodgerblue;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 10px;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 30px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+    .small-header {
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 10px;
+        color: white;
+        background-color: #F36E21;
+        font-size: large;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+        vertical-align: middle;
+
+    }
     .border-line {
         border: 1px solid rgba(0, 0, 0, .1);
         border-radius: 16px;
         padding: 10px;
         margin-bottom: 10px;
+
+    }
+    input[type=checkbox]
+    {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(2); /* IE */
+        -moz-transform: scale(2); /* FF */
+        -webkit-transform: scale(2.5); /* Safari and Chrome */
+        -o-transform: scale(2); /* Opera */
+        padding: 10px;
+        margin-right: 10px;
 
     }
 
