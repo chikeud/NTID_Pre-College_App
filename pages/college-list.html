@@ -3,10 +3,12 @@
 <body class="fullpage" ng-app="collegeList" ng-controller="collegeListCtrl">
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
     <a href="sophomore_fall.html">Sophomore Year: Fall</a>
     <a href="sophomore_spring.html">Sophomore Year: Spring</a>
     <a href="sophSummer.html">Summer after Sophomore Year</a>
     <a href="junior_fall.html">Junior Year: Fall</a>
+
     <a href="college-list.html">College List</a>
     <a href="tips.html">Tips</a>
 </div>
@@ -23,23 +25,22 @@
     </div>
 
 
-        <div class="border-line">
+
             <div class="border-line" ng-repeat="todo in todos track by $index">
                 <input type="checkbox" data-ng-model="todo.done">
                 <span class="done-{{ todo.done }}">{{ todo.text }}</span>
             </div>
-        </div>
-        <div class="column">
+
+
             <form ng-submit="addTodo()" class="todo-form">
                 <input type="text" data-ng-model="todoText" placeholder="Enter new College" />
-                <br />
-                <input type="submit" value="Add College" />
+                <input type="submit" value="+" />
             </form>
 
              <form data-ng-submit="archive()">
                 <input type="submit" value="Remove checked" />
              </form>
-        </div>
+
 
 
 
@@ -88,6 +89,7 @@
 <style>
     .fullpage{
         background-color: #ecf0f1;
+        font-family: Gill Sans Extrabold, sans-serif;
     }
     .small-header {
         border: 1px solid rgba(0, 0, 0, .1);
@@ -110,15 +112,6 @@
 
     }
 
-    .archive-control {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        height: 22px;
-        line-height: 22px;
-        padding: 5px 0px 5px 10px;
-        margin-bottom: 50px;
-        background: #ecf0f1;
-    }
-
     ul {
         list-style: none;
         padding-left: 0;
@@ -133,12 +126,13 @@
 
     input[type="text"] {
         border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        background-color: #ecf0f1;
         border-top: 0px;
         border-right: 0px;
         border-left: 0px;
         height: 30px;
         width: 100%;
-        max-width: 400px;
+        max-width: 600px;
     }
 
     input[type="submit"] {
