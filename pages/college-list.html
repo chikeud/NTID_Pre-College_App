@@ -8,7 +8,9 @@
     <a href="sophomore_spring.html">Sophomore Year: Spring</a>
     <a href="sophSummer.html">Summer after Sophomore Year</a>
     <a href="junior_fall.html">Junior Year: Fall</a>
-
+    <a href="">Junior Year: Spring</a>
+    <a href="">Summer after Junior Year</a>
+    <a href="">Senior Year: Fall</a>
     <a href="college-list.html">College List</a>
     <a href="tips.html">Tips</a>
 </div>
@@ -27,8 +29,10 @@
 
 
             <div class="border-line" ng-repeat="todo in todos track by $index">
-                <input type="checkbox" data-ng-model="todo.done">
-                <span class="done-{{ todo.done }}">{{ todo.text }}</span>
+                <span>
+                    <input type="checkbox" data-ng-model="todo.done">
+                    <span class="done-{{ todo.done }}">{{ todo.text }}</span>
+                </span>
             </div>
 
 
@@ -87,9 +91,19 @@
 
 
 <style>
-    .fullpage{
-        background-color: #ecf0f1;
-        font-family: Gill Sans Extrabold, sans-serif;
+    .button-save {
+        background-color: dodgerblue;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 10px;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 30px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        margin-top: 30px;
     }
     .small-header {
         border: 1px solid rgba(0, 0, 0, .1);
@@ -111,45 +125,25 @@
         margin-bottom: 10px;
 
     }
-
-    ul {
-        list-style: none;
-        padding-left: 0;
+    input[type=checkbox]
+    {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(2); /* IE */
+        -moz-transform: scale(2); /* FF */
+        -webkit-transform: scale(2.5); /* Safari and Chrome */
+        -o-transform: scale(2); /* Opera */
         padding: 10px;
+        margin-right: 10px;
+
     }
 
-    .todo-form {
-        padding: 10px;
-        text-align: center;
-
+    .border-line:hover {
+        background-color: white;
     }
-
-    input[type="text"] {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    .fullpage{
         background-color: #ecf0f1;
-        border-top: 0px;
-        border-right: 0px;
-        border-left: 0px;
-        height: 30px;
-        width: 100%;
-        max-width: 600px;
+        font-family: Gill Sans Extrabold, sans-serif;
     }
-
-    input[type="submit"] {
-        background-color: dodgerblue;
-        border: 1px solid rgba(0, 0, 0, .1);
-        border-radius: 10px;
-        color: white;
-        padding: 16px 32px;
-        text-align: center;
-        font-size: 30px;
-        margin: 4px 2px;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
-        cursor: pointer;
-        margin-top: 30px;
-    }
-
     /* The side navigation menu */
     .sidenav {
         height: 100%; /* 100% Full-height */
@@ -171,14 +165,13 @@
         font-size: 25px;
         color: #818181;
         display: block;
-        transition: 0.3s
+        transition: 0.2s
     }
 
     /* When you mouse over the navigation links, change their color */
     .sidenav a:hover, .offcanvas a:focus{
         color: #f1f1f1;
     }
-
 
     /* Position and style the close button (top right corner) */
     .sidenav .closebtn {
@@ -199,6 +192,37 @@
     @media screen and (max-height: 450px) {
         .sidenav {padding-top: 15px;}
         .sidenav a {font-size: 18px;}
+    }
+
+    input[type="submit"] {
+        background-color: dodgerblue;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 10px;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 30px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+    .todo-form {
+        padding: 10px;
+        text-align: center;
+
+    }
+
+    input[type="text"] {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        background-color: #ecf0f1;
+        border-top: 0px;
+        border-right: 0px;
+        border-left: 0px;
+        height: 30px;
+        width: 100%;
+        max-width: 600px;
     }
 
 </style>
