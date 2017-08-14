@@ -1,6 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<body class="fullpage" ng-app="sophomoreFall" ng-controller="sFallCtrl">
+<body class="fullpage" ng-app="juniorSummer" ng-controller="jSummCtrl">
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
     <a href="index.html">Home</a>
@@ -19,12 +19,11 @@
 
 <div id="main">
     <div class="small-header">
-        <h2>Fall of your sophomore year</h2>
+        <h2>The lazy, hazy days of summer</h2>
         <div class="inside-header">
-            <h6>(August through December)</h6>
+            <h6>(Between your junior and senior year)</h6>
         </div>
-        </div>
-
+    </div>
 
     <!--<form ng-submit="todoAdd()">
         <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
@@ -45,7 +44,7 @@
 
 
     <p>
-         <button class="button-save" ng-click="save()">Save</button>
+        <button class="button-save" ng-click="save()">Save</button>
     </p>
 
 
@@ -56,22 +55,17 @@
 </body>
 
 <script>
-    var app = angular.module('sophomoreFall', []);
-    app.controller('sFallCtrl', function($scope) {
-        $scope.saved = JSON.parse(localStorage.getItem('sophFalltodoList'));
-        $scope.todoList = [{todoText:'Meet with your school counselor about your college plans. ' +
-        'Review your course schedule to make sure you are enrolled in challenging courses that will help ' +
-        'you prepare for college. Many colleges prefer four years of English, history, math, science and a foreign language.', done:false},
-            {todoText:'Find out about the courses and tests required by the colleges that you might be interested in attending', done:false},
-            {todoText:'Study hard and keep up your grades in all courses', done:false},
-            {todoText:'Get Involved in a few extracurricular activities. Long-term involvement in a couple of areas such as sport and community' +
-            '/career-related activity is more valuable than participating briefly in a number of activities. Look for' +
-            'leadership roles.', done:false},
-            {todoText:'Evaluate your personality, interests and skills. Then explore career opportunities that might match your interests', done:false},
-            {todoText:'Talk to friends or relatives who are home from college for the holidays to learn about their college experiences', done:false},
-            {todoText:'Attend a college fair in your area and chat with college representatives.', done:false},
-            {todoText:'Set up a separate email account specifically for your college search. Remember to check it for periodic' +
-            'updates.', done:false}];
+    var app = angular.module('juniorSummer', []);
+    app.controller('jSummCtrl', function($scope) {
+        $scope.saved = JSON.parse(localStorage.getItem('juniorSummtodoList'));
+        $scope.todoList = [{todoText:'Check out the essay questions on applications for colleges that interest you' +
+            '. Think about YOUR college essay and write a rough draft. Getting a jump on this will take some of the stress away ' +
+            ' in the fall when you are busy with other things.', done:false},
+            {todoText:'Read all the mail and email you get from colleges and reply to the schools that interest you', done:false},
+            {todoText:'Review the online application at colleges you are interested in.', done:false},
+            {todoText:' Apply now for scholarships with fall deadlines. You probably will be busy when school ' +
+            ' starts again, and whatever you can do now will be helpful.', done:false}
+            ];
 
 
 
@@ -84,15 +78,15 @@
         };
         $scope.save = function () {
             if($scope.saved===null){
-                localStorage.setItem('sophFalltodoList',JSON.stringify($scope.todoList));
+                localStorage.setItem('juniorSummtodoList',JSON.stringify($scope.todoList));
             }
             else{
-                localStorage.setItem('sophFalltodoList',JSON.stringify($scope.saved));
+                localStorage.setItem('juniorSummtodoList',JSON.stringify($scope.saved));
             }
             console.log($scope.saved);
         };
         $scope.checkboxClick = function (x) {
-              x.done = (!x.done);
+            x.done = (!x.done);
         };
         $scope.openNav= function () {
             document.getElementById("mySidenav").style.width = "250px";
@@ -108,12 +102,6 @@
 
 <style>
 
-
-    .header-text{
-        text-align: center;
-        color: #F36E21;
-
-    }
     .button-save {
         background-color: rgb(0,127,182);
         border: 1px solid rgba(0, 0, 0, .1);
@@ -133,6 +121,7 @@
         color: white;
         background-color: rgb(0,127,182);
         font-size: medium;
+
         padding-top: 5px;
         text-align: center;
         vertical-align: middle;
@@ -144,6 +133,7 @@
         color: white;
         background-color: rgb(247,143,30);
         font-size: large;
+
         padding-top: 10px;
         text-align: center;
         margin-bottom: 15px;
