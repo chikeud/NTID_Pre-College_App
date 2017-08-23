@@ -124,3 +124,28 @@ input[type=checkbox]
     font-family: Gill Sans Extrabold, sans-serif;
 
 }
+.tips-small-header {
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 16px;
+    color: white;
+    background-color: rgb(247,143,30);
+    font-weight: bold;
+    font-size: large;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align: center;
+    margin-bottom: 25px;
+    vertical-align: middle;
+
+}
+.tips-inside-header{
+    border: 1px solid rgba(0, 0, 0, .1);
+    color: white;
+    background-color: rgb(0,127,182);
+    font-size: medium;
+    padding-top: 5px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 16px;
+
+}
