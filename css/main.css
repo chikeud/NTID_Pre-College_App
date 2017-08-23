@@ -149,3 +149,37 @@ input[type=checkbox]
     border-radius: 16px;
 
 }
+input[type="submit"] {
+    background-color: rgb(0,127,182);
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 30px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.todo-form {
+    padding: 10px;
+    text-align: center;
+
+}
+
+input[type="text"] {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: #ecf0f1;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    height: 30px;
+    width: 100%;
+    max-width: 600px;
+    font-size: large;
+}
+h2{font-size: 2em }
+
+h6{font-size: 0.8em}
