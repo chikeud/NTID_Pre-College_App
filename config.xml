@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+    <widget
+
+        id        = "com.phonegap.helloworld"
+        version   = "6.1.2">
+
+    <name>NTID Pre-College App</name>
+
+    <description>
+        Organize your College Application Activities
+    </description>
+
+    <author>
+        NTID
+    </author>
+    <platform name="android"/>
+    </widget>
